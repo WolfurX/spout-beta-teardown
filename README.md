@@ -109,6 +109,12 @@ The order panel rounds shares to two decimals, so $10 of NVDA reads as 0.04 shar
 
 The chatbot is keyword retrieval rather than comprehension. Asked "is lending live right now, and what is the liquidation threshold for NVDA", it returned a generic paragraph about the health factor and answered neither. Its canned answers are good; its free-text answers are not.
 
+### The Borrow page, as far as it goes
+
+The sponsor asked for a hard look at the borrowing UX and collateral management, so here is what the page offers once you hold a share. A collateral table lists all eleven assets with position value, shares owned, a max-borrow column at 50% LTV, a 30-day sparkline and a "See collateral detailed view" link per row. The panel on the right takes an amount or an LTV slider from 0% to 50%, shows "You hold 0.045302013 NVDA / $10", a health-factor bar, "Est. borrower cost/yr", "Annual Interest 0% (always)" and "You receive". Below it sit "Active Positions" and the empty-state line "Deposit collateral to open a position". Settings already has toggles for health-factor and assignment alerts. That is a reasonable skeleton.
+
+What is missing is everything a borrower needs before signing: the liquidation price for this loan, the asset's buffer and fee, whether a closed market changes anything, the assignment mechanics in one sentence, and any visible path to add collateral, repay, or unlock. "Deposit collateral to open a position" implies a separate lock step that the docs describe and the page never shows. Because the API is down I could not reach the position view, so I cannot say whether repay and unlock exist further in. Until the API works, this page is a preview.
+
 ## What I would ship before public launch, in order
 
 1. Session restore. Re-attach the wallet on load, or make Connect call the wallet flow when a session exists. This is an afternoon of work and it unblocks everything.
